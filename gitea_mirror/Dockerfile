@@ -18,12 +18,12 @@ RUN curl -L -s "https://github.com/hassio-addons/bashio/archive/${BASHIO_VERSION
     && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
     && rm -rf /tmp/bashio-*
 
-# Switch back to non-root user
-USER 1000
-
 # Copy run script
 COPY run.sh /
 RUN chmod a+x /run.sh
+
+# Switch back to non-root user
+USER 1000
 
 # Override the entrypoint to use our run script
 ENTRYPOINT []
