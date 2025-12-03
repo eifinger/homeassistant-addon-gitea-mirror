@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.9.2-3
+
+- Update changelog
+
+## 3.9.2-2
+
+- Use standard shebang
+
+## 3.9.2-1
+
+- Fix docker build
+
 ## 3.9.2
 
 - Initial release as Home Assistant Add-on
