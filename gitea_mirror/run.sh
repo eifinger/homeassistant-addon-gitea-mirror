@@ -15,9 +15,15 @@ export HOST=0.0.0.0
 export PORT=4321
 export DATABASE_URL=file:/data/gitea-mirror.db
 
-# Configure ingress
-export BETTER_AUTH_URL="$(bashio::addon.ingress_url)"
-bashio::log.info "Ingress URL: ${BETTER_AUTH_URL}"
+# Configure for ingress - use the internal URL since we're behind HA's ingress proxy
+# The app listens on this address and HA proxies requests to it
+export BETTER_AUTH_URL="http://localhost:${PORT}"
+
+# Set the base path for ingress routing
+INGRESS_PATH="$(bashio::addon.ingress_url)"
+export BASE_URL="${INGRESS_PATH}"
+bashio::log.info "Ingress path: ${INGRESS_PATH}"
+bashio::log.info "BETTER_AUTH_URL: ${BETTER_AUTH_URL}"
 
 # GitHub Configuration
 if bashio::config.has_value 'github_username'; then

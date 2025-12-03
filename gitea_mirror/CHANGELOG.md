@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.9.2-5
+
+- set BETTER_AUTH_URL
+
 ## 3.9.2-4
 
 - symlink /app/data to /data for persistence
