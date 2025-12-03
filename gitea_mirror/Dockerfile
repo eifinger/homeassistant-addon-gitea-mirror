@@ -1,6 +1,9 @@
 ARG BUILD_FROM
 FROM ghcr.io/raylabshq/gitea-mirror:v3.9.2
 
+# Switch to root to install packages
+USER root
+
 # Install bashio for Home Assistant addon integration
 RUN apk add --no-cache \
     bash \
@@ -14,6 +17,9 @@ RUN curl -L -s "https://github.com/hassio-addons/bashio/archive/${BASHIO_VERSION
     && mv /tmp/bashio-*/lib /usr/lib/bashio \
     && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
     && rm -rf /tmp/bashio-*
+
+# Switch back to non-root user
+USER 1000
 
 # Copy run script
 COPY run.sh /
