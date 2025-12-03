@@ -1,0 +1,84 @@
+name: "Gitea Mirror"
+description: "Automatically mirror repositories from GitHub to your self-hosted Gitea/Forgejo instance"
+version: "3.9.2"
+slug: "gitea_mirror"
+url: "https://github.com/RayLabsHQ/gitea-mirror"
+init: false
+arch:
+  - aarch64
+  - amd64
+startup: services
+ingress: true
+ingress_port: 4321
+ingress_stream: false
+panel_icon: "mdi:source-repository-multiple"
+panel_title: "Gitea Mirror"
+map:
+  - type: ssl
+    read_only: true
+ports:
+  4321/tcp: null
+ports_description:
+  4321/tcp: "Web interface (not needed when using ingress)"
+options:
+  github_username: ""
+  github_token: ""
+  gitea_url: ""
+  gitea_username: ""
+  gitea_token: ""
+  gitea_organization: "github-mirrors"
+  private_repositories: false
+  public_repositories: true
+  mirror_starred: false
+  skip_forks: false
+  include_archived: false
+  mirror_organizations: false
+  preserve_org_structure: false
+  mirror_strategy: "preserve"
+  gitea_mirror_interval: "8h"
+  mirror_releases: false
+  mirror_wiki: false
+  mirror_metadata: false
+  mirror_issues: false
+  mirror_pull_requests: false
+  mirror_labels: false
+  mirror_milestones: false
+  gitea_lfs: false
+  schedule_enabled: false
+  schedule_interval: 3600
+  auto_import_repos: true
+  cleanup_enabled: false
+  cleanup_retention_days: 7
+  cleanup_delete_if_not_in_github: false
+  cleanup_orphaned_repo_action: "archive"
+schema:
+  github_username: str
+  github_token: password
+  gitea_url: url
+  gitea_username: str
+  gitea_token: password
+  gitea_organization: str
+  private_repositories: bool
+  public_repositories: bool
+  mirror_starred: bool
+  skip_forks: bool
+  include_archived: bool
+  mirror_organizations: bool
+  preserve_org_structure: bool
+  mirror_strategy: list(preserve|single-org|flat-user|mixed)
+  gitea_mirror_interval: str
+  mirror_releases: bool
+  mirror_wiki: bool
+  mirror_metadata: bool
+  mirror_issues: bool
+  mirror_pull_requests: bool
+  mirror_labels: bool
+  mirror_milestones: bool
+  gitea_lfs: bool
+  schedule_enabled: bool
+  schedule_interval: int
+  auto_import_repos: bool
+  cleanup_enabled: bool
+  cleanup_retention_days: int
+  cleanup_delete_if_not_in_github: bool
+  cleanup_orphaned_repo_action: list(skip|archive|delete)

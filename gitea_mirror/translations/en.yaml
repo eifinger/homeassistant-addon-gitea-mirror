@@ -1,0 +1,94 @@
+configuration:
+  github_username:
+    name: GitHub Username
+    description: Your GitHub username
+  github_token:
+    name: GitHub Token
+    description: GitHub personal access token (requires repo and admin:org scopes)
+  gitea_url:
+    name: Gitea URL
+    description: URL of your Gitea/Forgejo instance (e.g., http://gitea:3000)
+  gitea_username:
+    name: Gitea Username
+    description: Your Gitea username
+  gitea_token:
+    name: Gitea Token
+    description: Gitea access token with repository and organization permissions
+  gitea_organization:
+    name: Gitea Organization
+    description: Default organization name for mirrored repositories
+  private_repositories:
+    name: Include Private Repositories
+    description: Mirror private GitHub repositories
+  public_repositories:
+    name: Include Public Repositories
+    description: Mirror public GitHub repositories
+  mirror_starred:
+    name: Mirror Starred Repositories
+    description: Mirror repositories you have starred on GitHub
+  skip_forks:
+    name: Skip Forks
+    description: Skip forked repositories when mirroring
+  include_archived:
+    name: Include Archived
+    description: Include archived repositories when mirroring
+  mirror_organizations:
+    name: Mirror Organizations
+    description: Mirror repositories from GitHub organizations you belong to
+  preserve_org_structure:
+    name: Preserve Organization Structure
+    description: Preserve GitHub organization structure in Gitea
+  mirror_strategy:
+    name: Mirror Strategy
+    description: How to organize repositories in Gitea (preserve, single-org, flat-user, mixed)
+  gitea_mirror_interval:
+    name: Mirror Interval
+    description: How often Gitea should sync from GitHub (e.g., 8h, 24h, 1d)
+  mirror_releases:
+    name: Mirror Releases
+    description: Mirror GitHub releases to Gitea
+  mirror_wiki:
+    name: Mirror Wiki
+    description: Mirror wiki content from GitHub
+  mirror_metadata:
+    name: Mirror Metadata
+    description: Master toggle for metadata mirroring (issues, PRs, labels, milestones)
+  mirror_issues:
+    name: Mirror Issues
+    description: Mirror GitHub issues to Gitea (requires Mirror Metadata enabled)
+  mirror_pull_requests:
+    name: Mirror Pull Requests
+    description: Mirror pull requests as issues (requires Mirror Metadata enabled)
+  mirror_labels:
+    name: Mirror Labels
+    description: Mirror repository labels (requires Mirror Metadata enabled)
+  mirror_milestones:
+    name: Mirror Milestones
+    description: Mirror milestones (requires Mirror Metadata enabled)
+  gitea_lfs:
+    name: Enable LFS
+    description: Enable Git LFS support (requires LFS enabled on Gitea server)
+  schedule_enabled:
+    name: Enable Scheduled Mirroring
+    description: Automatically mirror repositories on a schedule
+  schedule_interval:
+    name: Schedule Interval
+    description: Interval in seconds between scheduled mirror runs
+  auto_import_repos:
+    name: Auto Import Repositories
+    description: Automatically discover and import new GitHub repositories
+  cleanup_enabled:
+    name: Enable Cleanup
+    description: Enable automatic cleanup of old events and data
+  cleanup_retention_days:
+    name: Cleanup Retention Days
+    description: Number of days to keep events before cleanup
+  cleanup_delete_if_not_in_github:
+    name: Delete If Not In GitHub
+    description: Delete/archive Gitea repos that no longer exist on GitHub
+  cleanup_orphaned_repo_action:
+    name: Orphaned Repository Action
+    description: Action for repositories not found in GitHub (skip, archive, delete)
+
+network:
+  4321/tcp: Web interface (not needed when using ingress)
