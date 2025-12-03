@@ -13,9 +13,6 @@ ingress_port: 4321
 ingress_stream: true
 panel_icon: "mdi:source-repository-multiple"
 panel_title: "Gitea Mirror"
-map:
-  - type: ssl
-    read_only: true
 ports:
   4321/tcp: null
 ports_description:

@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.9.2-7
+
+- Disable HTTPS
+
 ## 3.9.2-6
 
 - set INGRESS_ENTRY

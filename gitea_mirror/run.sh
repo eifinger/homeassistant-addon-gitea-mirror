@@ -15,6 +15,11 @@ export HOST=0.0.0.0
 export PORT=4321
 export DATABASE_URL=file:/data/gitea-mirror.db
 
+# Disable HTTPS - HA handles SSL termination via ingress
+# The Astro node adapter will use HTTPS if these are set
+unset SERVER_CERT_PATH
+unset SERVER_KEY_PATH
+
 # Configure for ingress
 # HA ingress strips the path prefix before forwarding to the addon
 # The app receives requests at / but needs to know the external entry URL for redirects
