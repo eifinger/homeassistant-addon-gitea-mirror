@@ -10,7 +10,7 @@ arch:
 startup: services
 ingress: true
 ingress_port: 4321
-ingress_stream: false
+ingress_stream: true
 panel_icon: "mdi:source-repository-multiple"
 panel_title: "Gitea Mirror"
 map:

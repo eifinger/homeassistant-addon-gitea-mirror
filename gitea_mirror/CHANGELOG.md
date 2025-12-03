@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.9.2-6
+
+- set INGRESS_ENTRY
+
 ## 3.9.2-5
 
 - set BETTER_AUTH_URL
