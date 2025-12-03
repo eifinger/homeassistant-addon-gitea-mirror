@@ -22,8 +22,12 @@ RUN curl -L -s "https://github.com/hassio-addons/bashio/archive/${BASHIO_VERSION
 COPY run.sh /
 RUN chmod a+x /run.sh
 
-# Switch back to non-root user
-USER 1000
+# Remove /app/data if it exists and create symlink to /data
+# This ensures the upstream entrypoint writes to the HA persistent storage
+RUN rm -rf /app/data && ln -s /data /app/data
+
+# /data will be created and owned by Home Assistant at runtime
+# Keep running as root since HA addons typically run as root
 
 # Override the entrypoint to use our run script
 ENTRYPOINT []

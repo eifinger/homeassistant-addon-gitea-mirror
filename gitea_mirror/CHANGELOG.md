@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.9.2-4
+
+- symlink /app/data to /data for persistence
+
 ## 3.9.2-3
 
 - Update changelog
